@@ -81,7 +81,7 @@ fn day7(input: &str) -> Vec<u32> {
             let parent = wd.borrow().parent.as_ref().unwrap().clone();
             wd = parent.clone();
         } else if line == "$ ls" {
-            if true {
+            if !wd.borrow().init {
                 // Init directory and read all files
                 while input.peek().is_some() && !input.peek().unwrap().starts_with('$') {
                     let line = input.next().unwrap();
@@ -146,7 +146,7 @@ fn day7(input: &str) -> Vec<u32> {
         }
     }
 
-    print_dir(&root.borrow(), "".to_string());
+    // print_dir(&root.borrow(), "".to_string());
 
     // Traverse file system tree, recursively adding each directory w/ their true size
     // (local size + children size)
