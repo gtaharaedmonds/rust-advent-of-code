@@ -124,6 +124,7 @@ fn day7(input: &str) -> Vec<u32> {
         }
     }
 
+    // Print directories for debugging
     fn print_dir(dir: &Dir, indent: String) {
         let parent = dir.parent.as_ref();
         if parent.is_some() {
@@ -147,6 +148,8 @@ fn day7(input: &str) -> Vec<u32> {
 
     print_dir(&root.borrow(), "".to_string());
 
+    // Traverse file system tree, recursively adding each directory w/ their true size
+    // (local size + children size)
     fn add_dir(dir: &Dir, dir_sizes: &mut Vec<u32>) -> u32 {
         let mut size = dir.size;
 
