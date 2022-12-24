@@ -1,5 +1,5 @@
-use std::collections::HashSet;
 use regex::Regex;
+use std::collections::HashSet;
 
 pub fn day5_p1(input: &str) -> String {
     // Set for checking if a given character is a crate (is a letter)
@@ -11,7 +11,7 @@ pub fn day5_p1(input: &str) -> String {
     // Define data structure (vec of vecs) to hold crates
     let width = input.lines().next().unwrap().len();
     let mut crates: Vec<Vec<char>> = vec![Vec::new(); width];
-    
+
     // Iterator over lines
     let mut lines = input.lines();
 
@@ -61,7 +61,7 @@ pub fn day5_p2(input: &str) -> String {
     // Define data structure (vec of vecs) to hold crates
     let width = input.lines().next().unwrap().len();
     let mut crates: Vec<Vec<char>> = vec![Vec::new(); width];
-    
+
     // Iterator over lines
     let mut lines = input.lines();
 
@@ -96,10 +96,10 @@ pub fn day5_p2(input: &str) -> String {
             // Move count crates from stack src to temp stack
             tmp.push(crates[src].pop().unwrap());
         }
-        
+
         for _ in 0..count {
             // Move count crates temp stack to dest stack
-            // Reverse order 2x, so don't actually reverse order 
+            // Reverse order 2x, so don't actually reverse order
             crates[dest].push(tmp.pop().unwrap());
         }
 
