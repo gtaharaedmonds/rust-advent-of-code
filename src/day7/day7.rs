@@ -125,27 +125,26 @@ fn day7(input: &str) -> Vec<u32> {
     }
 
     // Print directories for debugging
-    fn print_dir(dir: &Dir, indent: String) {
-        let parent = dir.parent.as_ref();
-        if parent.is_some() {
-            println!(
-                "{indent}Dir {} of size {} with parent {}.",
-                dir.name,
-                dir.size,
-                parent.unwrap().borrow().name
-            );
-        } else {
-            println!(
-                "{indent}Dir {} of size {} with no parent.",
-                dir.name, dir.size
-            );
-        }
+    // fn print_dir(dir: &Dir, indent: String) {
+    //     let parent = dir.parent.as_ref();
+    //     if parent.is_some() {
+    //         println!(
+    //             "{indent}Dir {} of size {} with parent {}.",
+    //             dir.name,
+    //             dir.size,
+    //             parent.unwrap().borrow().name
+    //         );
+    //     } else {
+    //         println!(
+    //             "{indent}Dir {} of size {} with no parent.",
+    //             dir.name, dir.size
+    //         );
+    //     }
 
-        for subdir in &dir.subdirs {
-            print_dir(&subdir.borrow(), indent.to_string() + "  ");
-        }
-    }
-
+    //     for subdir in &dir.subdirs {
+    //         print_dir(&subdir.borrow(), indent.to_string() + "  ");
+    //     }
+    // }
     // print_dir(&root.borrow(), "".to_string());
 
     // Traverse file system tree, recursively adding each directory w/ their true size
